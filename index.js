@@ -23,7 +23,7 @@ app.use('/follow', followRoute)
 
 app.listen(PORT, () => console.log(`Running on port: ${PORT}`));
 
-mongoose.connect('mongodb+srv://huzaif:huzaifmtb@cluster0.tkpiyzu.mongodb.net/Cluster0?retryWrites=true&w=majority&appName=Cluster0',
+mongoose.connect('',
 ).then(() => {
     console.log("Database connected");
 }).catch((err) => {
