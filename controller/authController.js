@@ -30,8 +30,7 @@ const Signup = async (req, res) => {
         });
 
         await newUser.save();
-        return res.status(201).json({ newUser });
-        //return res.status(201).json({ message: "Successfully created account" });
+        return res.status(201).json({ message: "Successfully created account" });
     } catch (err) {
         console.log(err);
         return res.status(500).json({ message: "Unable to create account" });

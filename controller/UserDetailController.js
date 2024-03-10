@@ -7,12 +7,9 @@ const createUserDetail = async (req, res) => {
     const profile = req.file
     const UserId = req.user.id
 
-    console.log(UserId)
+
 
     const checkuserDEtail = await UserDetail.findOne({ UserId })
-
-    console.log(checkuserDEtail._id)
-
 
     if (checkuserDEtail) {
         let userdetails;
