@@ -4,12 +4,7 @@ const ViewRecentPost = async (req, res) => {
     let viewposts;
 
     try {
-        viewposts = await Post.findOne({}, {}, { sort: { 'createdAt' : -1 } }, (err, latestPost) => {
-            if (err) {
-              console.error('Error finding latest post:', err);
-              return;
-            }
-        });  
+        viewposts = await Post.find().sort({ upload_time: -1 });
     } catch (err) {
         console.log(err)
     }
@@ -21,9 +16,10 @@ const ViewRecentPost = async (req, res) => {
 
 const ViewFollowingPost = async (req, res) => {
     let viewposts;
+    const currentUser = req.user.id;
 
     try {
-
+        const followingUsers = await User.findById(currentUser).populate('followingUserID');
     } catch (err) {
         console.log(err)
     }

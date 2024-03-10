@@ -22,6 +22,8 @@ route.post('/userdetial/' , authRoute.jwtverify, upload.single('profile') ,UserD
 route.get('/userdetial/:id', UserDetailRoutes.getUserDetailByID)
 route.get('/userdetial', UserDetailRoutes.getALLUserDetail)
 route.delete('/userdetial/:id', UserDetailRoutes.deleteUserDetail)
+
 route.get('/', UserDetailRoutes.allUsers)
+route.delete('/:id', UserDetailRoutes.deleteUser)
 
 module.exports = route

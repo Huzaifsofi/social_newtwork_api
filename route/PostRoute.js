@@ -9,4 +9,7 @@ route.get('/', authRoute.jwtverify ,PostRoutes.viewALLPost)
 route.put('/:id', authRoute.jwtverify ,PostRoutes.UpdatePost)
 route.delete('/:id', authRoute.jwtverify ,PostRoutes.DeletePost)
 
+route.get('/recentpost', authRoute.jwtverify ,PostRoutes.userViewReacent)
+route.get('/followpost', authRoute.jwtverify ,PostRoutes.userViewFollowPost)
+
 module.exports = route

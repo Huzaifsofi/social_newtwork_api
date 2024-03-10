@@ -113,6 +113,23 @@ const allUsers = async (req, res) => {
 
 
 
+const deleteUser = async (req, res) => {
+    const id = req.params.id;
+    let users;
+
+    try {
+        users = await User.findByIdAndDelete(id)
+    } catch (err) {
+        console.log(err)
+    }
+    if (!users) {
+        return res.status(400).json({ message: "unable to delete" })
+    }
+    return res.status(200).json({ message: "sucessfully deleted" })
+}
+
+
+
 /*
 const createUserDetail = async (req, res) => {
     let userdetails;
@@ -145,6 +162,7 @@ const createUserDetail = async (req, res) => {
 
 exports.createUserDetail = createUserDetail
 exports.allUsers = allUsers
+exports.deleteUser = deleteUser
 exports.deleteUserDetail = deleteUserDetail
 exports.getUserDetailByID = getUserDetailByID
 exports.getALLUserDetail = getALLUserDetail
